@@ -12,6 +12,12 @@ The plugin does come with one setting: `required`, and if set to true, this is t
 
 When `required` is false, or saving a post as a draft, you are not required to include a post image.
 
+## Installing the plugin
+
+Plugin auto-install url:
+
+	https://github.com/CounterMarch/Mango-PostImage/archive/master.zip
+
 ## Getting the image url in your theme
 
 Normal theme rules and restrictions apply. The custom field name is `postImage-v1`:

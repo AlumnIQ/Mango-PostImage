@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="com.fusiongrokker.plugins.PostImage" name="PostImage" version="1.0" provider-name="Adam Tuttle | http://fusiongrokker.com" class="PostImage.plugin">
+	<description><![CDATA[ Allows attaching large header graphics to each post, ala Medium.com.<br/>
+	<br/>
+	Written By <a href="http://fusiongrokker.com">Adam Tuttle</a><br/>
+	Find the latest version at: <a href="https://www.github.com/countermarch/Mango-PostImage">https://www.github.com/countermarch/Mango-PostImage</a> ]]></description>
+	<requiresVersion match="greaterOrEqual">1.5</requiresVersion>
+	<listens>
+		<event name="settingsNav" type="synch" priority="10" />
+		<event name="PostImage-settings" type="synch" priority="5" />
+		<event name="beforeAdminPostFormDisplay" type="synch" priority="10" />
+		<event name="beforeAdminPostFormEnd" type="synch" priority="11" />
+		<event name="beforePostAdd" type="synch" priority="10" />
+		<event name="beforePostUpdate" type="synch" priority="10" />
+	</listens>
+	<assetsAdmin></assetsAdmin>
+</plugin>

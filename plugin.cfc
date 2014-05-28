@@ -87,7 +87,6 @@
 			</cfcase>
 
 			<cfcase value="beforePostAdd,beforePostUpdate">
-<!--- <cfdump var="#arguments.event#" abort="true" /> --->
 				<cfif getSetting("required") eq true && len(trim(arguments.event.data.rawdata.postImage_value)) eq 0>
 					<!--- todo: if status is published, and setting "required"=true, don't allow this save (image required) --->
 					<cfset arguments.event.message.setStatus("error") />

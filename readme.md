@@ -12,6 +12,16 @@ The plugin does come with one setting: `required`, and if set to true, this is t
 
 When `required` is false, or saving a post as a draft, you are not required to include a post image.
 
+## Getting the image url in your theme
+
+Normal theme rules and restrictions apply. The custom field name is `postImage-v1`:
+
+	<mango:Posts>
+		<mango:Post>
+			<mango:PostProperty customField="postImage-v1" />
+		</mango:Post>
+	</mango:Posts>
+
 ## LICENSE
 
 > **The MIT License (MIT)**

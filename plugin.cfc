@@ -87,12 +87,17 @@
 			</cfcase>
 
 			<cfcase value="beforePostAdd,beforePostUpdate">
+				<!--- if status is published, and setting "required"=true, don't allow this save (image required) --->
 				<cfif getSetting("required") eq true && len(trim(arguments.event.data.rawdata.postImage_value)) eq 0>
-					<!--- todo: if status is published, and setting "required"=true, don't allow this save (image required) --->
-					<cfset arguments.event.message.setStatus("error") />
-					<cfset arguments.event.message.setTitle("Post Image is required to publish") />
-					<cfset arguments.event.message.setText("Post Image is required to publish") />
-					<cfset arguments.event.setContinueProcess(false) />
+					<cfif arguments.event.data.newItem.getStatus() eq "published">
+						<cfset arguments.event.message.setStatus("error") />
+						<cfset arguments.event.message.setTitle("Post Image is required to publish") />
+						<cfset arguments.event.message.setText("Post Image is required to publish") />
+						<cfset arguments.event.setContinueProcess(false) />
+					<cfelse>
+						<!--- draft, allow it to continue --->
+						<cfset arguments.event.data.post.setCustomField(variables.customFieldKey, "PostImage", "") />
+					</cfif>
 				<cfelse>
 					<!--- save the photo url as the custom field value for this entry --->
 					<cfset arguments.event.data.post.setCustomField(variables.customFieldKey, "PostImage", arguments.event.data.rawdata.postImage_value) />
